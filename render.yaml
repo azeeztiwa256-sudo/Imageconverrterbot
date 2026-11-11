@@ -1,0 +1,20 @@
+services:
+  - type: worker
+    name: image-converter-bot
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        value: ""
+      - key: MAX_FILE_MB
+        value: "20"
+      - key: MAX_PIXELS
+        value: "40000000"
+      - key: CONCURRENCY
+        value: "3"
+      - key: LOG_LEVEL
+        value: "INFO"
